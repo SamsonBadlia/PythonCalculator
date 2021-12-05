@@ -1,19 +1,15 @@
 from tkinter import *
+import numpy as np
 
 exp = ""
 
 def press(num):
-    # point out the global exp variable
     global exp
-
-    # concatenation of string
     exp = exp + str(num)
-
-    # update the exp by using set method
     equation.set(exp)
 
 
-def equalpress():
+def solve():
     try:
         global exp
         total = str(eval(exp))
@@ -31,7 +27,6 @@ def clear():
 
 
 if __name__ == "__main__":
-
     gui = Tk()
     length = int(gui.winfo_screenwidth())
     width = int(gui.winfo_screenheight())
@@ -86,13 +81,13 @@ if __name__ == "__main__":
     division = Button(gui, text=' / ', fg='white', bg='black',command=lambda: press("/"), height=int(width/100), width=int(length/100))
     division.grid(row=5, column=3)
 
-    equal = Button(gui, text=' = ', fg='white', bg='black',command=equalpress, height=int(width/100), width=int(length/100))
+    equal = Button(gui, text=' = ', fg='white', bg='black',command=solve, height=int(width/100), width=int(length/100))
     equal.grid(row=5, column=2)
 
     clear = Button(gui, text='Clear', fg='white', bg='black',command=clear, height=int(width/100), width=int(length/100))
     clear.grid(row=5, column='1')
 
-    Decimal= Button(gui, text='.', fg='white', bg='black',command=lambda: press('.'), height=int(width/100), width=int(length/100))
+    Decimal = Button(gui, text='.', fg='white', bg='black',command=lambda: press('.'), height=int(width/100), width=int(length/100))
     Decimal.grid(row=6, column=0)
     # start the GUI
     gui.mainloop()
