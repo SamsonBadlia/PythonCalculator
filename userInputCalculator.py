@@ -3,15 +3,15 @@ import sys
 
 twoInputfunctions = ['add','subtract','multiply','divide']
 oneInputfunctions = ['ln','square root', 'sine', 'cosine','sin','cos']
-total = None
+total : float
 
-def add(a,b): return a + b
+def add(a,b): return float(a + b)
 
-def subtract(a,b): return a - b
+def subtract(a,b): return float(a - b)
 
-def multiply(a,b): return a * b
+def multiply(a,b): return float(a * b)
 
-def divide(a,b): return a / b
+def divide(a,b): return float(a / b)
 
 def log(a): return np.log(a)
 
@@ -23,26 +23,26 @@ def cosine(a): return np.cos(a)
 
 print("This is a calculator:", sys.argv[0])
 while True:
-    input = input("Choose an operation: add,subtract,multiply,divide,ln,square root,sine,cosine,sin,cos \n")
-    if input in twoInputfunctions:
+    func = input("Choose an operation: add,subtract,multiply,divide,ln,square root,sine,cosine,sin,cos \n")
+    if func in twoInputfunctions:
         num1 = float(input("Gimme the first number: "))
         num2 = float(input("Gimme the second number: "))
-        if input == 'add':
+        if func == 'add':
             total = add(num1,num2)
-        elif input == 'subtract':
+        elif func == 'subtract':
             total = subtract(num1,num2)
-        elif input == 'multiply':
+        elif func == 'multiply':
             total = multiply(num1,num2)
-        elif input == 'divide':
+        elif func == 'divide':
             total = divide(num1,num2)
-    if input in oneInputfunctions:
+    if func in oneInputfunctions:
         num = float(input("Gimme the number: "))
-        if input == 'ln':
+        if func == 'ln':
             total = log(num)
-        elif input == 'squareRoot':
+        elif func == 'squareRoot':
             total = squareRoot(num)
-        elif input == 'sin' or input == 'sine':
+        elif func == 'sin' or func == 'sine':
             total = sine(num)
-        elif input == 'cos' or input == 'cosine':
+        elif func == 'cos' or func == 'cosine':
             total = cosine(num)
     print("Your total is %d" % (total))
