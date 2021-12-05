@@ -33,10 +33,11 @@ def clear():
 if __name__ == "__main__":
 
     gui = Tk()
-
+    length = int(gui.winfo_screenwidth())
+    width = int(gui.winfo_screenheight())
     gui.configure(background="blue")
     gui.title("Calculator")
-    gui.geometry("540x300")
+    gui.geometry("%dx%d" % (length, width))
 
     equation = StringVar()
     exp_field = Entry(gui, textvariable=equation)
